@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Jhonny Andrés González | Proyecto de Vida - Desarrollador Software</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, #0a0f1e, #03060c);
+            font-family: 'Inter', 'Space Grotesk', sans-serif;
+            color: #eef5ff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* partículas decorativas de fondo */
+        .orb-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: floatOrb 18s infinite alternate ease-in-out;
+        }
+
+        .orb1 {
+            width: 40vw;
+            height: 40vw;
+            background: #3b82f6;
+            top: -15vh;
+            left: -10vw;
+        }
+
+        .orb2 {
+            width: 35vw;
+            height: 35vw;
+            background: #a855f7;
+            bottom: -10vh;
+            right: -5vw;
+            animation-duration: 22s;
+        }
+
+        .orb3 {
+            width: 25vw;
+            height: 25vw;
+            background: #14b8a6;
+            top: 40%;
+            left: 60%;
+            animation-duration: 25s;
+            opacity: 0.3;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1);}
+            100% { transform: translate(60px, 40px) scale(1.1);}
+        }
+
+        /* contenedor principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.8rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* tarjetas glassmorfismo moderno */
+        .glass-card {
+            background: rgba(15, 25, 45, 0.55);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            border: 1px solid rgba(72, 187, 255, 0.2);
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 255, 255, 0.4);
+            box-shadow: 0 25px 40px -12px rgba(0, 180, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* hero principal */
+        .hero {
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-info {
+            flex: 2;
+            min-width: 260px;
+        }
+
+        .hero-info h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFFFFF, #7dd3fc);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-tag {
+            font-size: 1.1rem;
+            border-left: 4px solid #2dd4bf;
+            padding-left: 1rem;
+            margin: 0.8rem 0 1rem;
+            opacity: 0.9;
+        }
+
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .chip {
+            background: rgba(45, 212, 191, 0.15);
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 0.5px solid rgba(45,212,191,0.4);
+        }
+
+        .contact-block {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 1.2rem;
+            padding: 1rem 1.4rem;
+            margin-top: 0.5rem;
+        }
+
+        .contact-block p {
+            margin: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-block i {
+            width: 1.6rem;
+            color: #2dd4bf;
+            font-size: 1.1rem;
+        }
+
+        /* IMAGEN DE PERFIL: 1p.png */
+        .avatar-area {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(45,212,191,0.8);
+            box-shadow: 0 0 30px rgba(45,212,191,0.4);
+            transition: 0.25s ease;
+            background: linear-gradient(135deg, #1e2a4a, #0b1120);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .avatar-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .avatar-area .fallback-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a5f3fc, #2dd4bf);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .avatar-area:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 45px rgba(45,212,191,0.7);
+            border-color: #2dd4bf;
+        }
+
+        /* grid cards */
+        .grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            padding: 1.6rem 1.8rem;
+            background: rgba(12, 20, 35, 0.65);
+            backdrop-filter: blur(12px);
+            border-radius: 1.6rem;
+            border: 1px solid rgba(72, 187, 255, 0.2);
+            transition: all 0.25s;
+        }
+
+        .info-card:hover {
+            border-color: #2dd4bf;
+            background: rgba(20, 32, 55, 0.75);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: #2dd4bf;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .info-card p, .info-card li {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card ul li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .info-card ul li i {
+            width: 1.4rem;
+            color: #2dd4bf;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: rgba(45, 212, 191, 0.2);
+            padding: 0.3rem 0.9rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 0.2rem 0.2rem;
+        }
+
+        .sena-destacado {
+            background: linear-gradient(120deg, #0f2a3b, #082032);
+            border-left: 5px solid #2dd4bf;
+        }
+
+        .btn-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(45, 212, 191, 0.2);
+            border-radius: 3rem;
+            padding: 0.6rem 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .upload-instruction {
+            background: rgba(0,0,0,0.6);
+            border-radius: 1rem;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            border-left: 3px solid #f59e0b;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(45,212,191,0.2);
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .hero-tag {
+                text-align: left;
+            }
+            .badge-group {
+                justify-content: center;
+            }
+            .contact-block {
+                text-align: left;
+            }
+            .avatar-area {
+                width: 150px;
+                height: 150px;
+            }
+            .hero-info h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="orb-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+</div>
+
+<div class="container">
+    <!-- Hero principal con imagen de perfil: 1p.png -->
+    <div class="hero glass-card">
+        <div class="hero-info">
+            <h1>Jhonny Andrés González González</h1>
+            <div class="hero-tag">
+                <i class="fas fa-code"></i> Proyecto de vida: desarrollador de software · Formación SENA virtual
+            </div>
+            <div class="badge-group">
+                <span class="chip"><i class="fas fa-calendar-alt"></i> 26/11/2010 · 15 años</span>
+                <span class="chip"><i class="fas fa-map-marker-alt"></i> Resguardo Totumal · Caldas</span>
+                <span class="chip"><i class="fas fa-school"></i> I.E. El Águila · Grado 11</span>
+            </div>
+            <div class="contact-block">
+                <p><i class="fas fa-envelope"></i> guasarabeandres5@gmail.com</p>
+                <p><i class="fas fa-phone-alt"></i> +57 321 8289141</p>
+                <p><i class="fas fa-laptop-house"></i> Estudio virtual · Hogar en Totumal</p>
+            </div>
+        </div>
+        <div class="avatar-area" id="avatarContainer">
+            <img id="profileImage" src="1p.png" alt="Foto de perfil - Jhonny Andrés">
+            <span class="fallback-text" id="fallbackText" style="display: none;">JAG</span>
+        </div>
+    </div>
+
+    <!-- Sección: Mi esencia + educación actual -->
+    <div class="grid-modern">
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-user-astronaut"></i></div>
+            <h3>Mi esencia</h3>
+            <p>Soy un joven de 15 años, nacido en el Resguardo Totumal (Caldas). Actualmente curso <strong>grado 11</strong> en la Institución Educativa El Águila. Me defino por la disciplina, el amor por la tecnología y el deseo de construir un futuro a través del desarrollo de software. Creo firmemente que la educación virtual desde el territorio es una oportunidad para transformar realidades.</p>
+            <div style="margin-top: 0.8rem;">
+                <span class="skill-tag"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS3</span>
+                <span class="skill-tag"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                <span class="skill-tag"><i class="fas fa-brain"></i> Lógica de programación</span>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Formación actual</h3>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> <strong>I.E. El Águila</strong> — Grado 11 (finalizando bachillerato)</li>
+                <li><i class="fas fa-check-circle"></i> <strong>Estudio autónomo:</strong> HTML y CSS desde mi casa, creando proyectos web.</li>
+                <li><i class="fas fa-check-circle"></i> Preparación intensiva para pruebas de ingreso al SENA.</li>
+            </ul>
+            <div class="btn-meta">
+                <i class="fas fa-calendar-week"></i> Meta: Graduarme con excelencia - 2026
+            </div>
+        </div>
+
+        <div class="info-card sena-destacado">
+            <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Mi gran meta: SENA + Software</h3>
+            <p><strong>"Quiero seguir con el SENA"</strong> — mi próximo paso es ingresar al programa de <strong>Análisis y Desarrollo de Software (ADSO)</strong> en modalidad <strong>100% virtual</strong> desde mi hogar en el Resguardo Totumal. Anhelo especializarme en desarrollo full stack y utilizar la tecnología para impactar mi comunidad.</p>
+            <div class="btn-meta">
+                <i class="fas fa-home"></i> Estudio virtual en mi propia casa · HTML y CSS como base
+            </div>
+        </div>
+    </div>
+
+    <!-- Segunda fila: plan de vida, estudio remoto y herramientas -->
+    <div class="grid-modern">
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+            <h3>Proyecto de vida 2030</h3>
+            <ul>
+                <li><i class="fas fa-bullseye"></i> <strong>2026:</strong> Bachiller técnico + ingreso al SENA virtual.</li>
+                <li><i class="fas fa-bullseye"></i> <strong>2027-2028:</strong> Tecnólogo en Desarrollo de Software, dominar JavaScript, React, bases de datos.</li>
+                <li><i class="fas fa-bullseye"></i> <strong>2029+:</strong> Ejercer como desarrollador remoto, crear mi propio emprendimiento digital o freelance, inspirar a jóvenes del campo.</li>
+            </ul>
+            <div class="btn-meta" style="margin-top: 0.5rem;">
+                <i class="fas fa-seedling"></i> Raíces en Totumal, alas digitales
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-laptop-house"></i></div>
+            <h3>Estudio en casa: HTML + CSS</h3>
+            <p>Desde mi propia habitación en el Resguardo Totumal, utilizo recursos gratuitos, documentación y plataformas interactivas para aprender desarrollo web. Mi primera página web sobre mi proyecto de vida es el reflejo de mi pasión. Próximamente dominaré:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;">
+                <span class="skill-tag"><i class="fab fa-html5"></i> HTML5 semántico</span>
+                <span class="skill-tag"><i class="fab fa-css3-alt"></i> Flexbox/Grid</span>
+                <span class="skill-tag"><i class="fab fa-js"></i> JavaScript (próximo)</span>
+                <span class="skill-tag"><i class="fas fa-database"></i> Fundamentos SQL</span>
+            </div>
+            <p><i class="fas fa-quote-left"></i> La tecnología no tiene fronteras, mi formación virtual es la llave para construir un futuro brillante.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="card-icon"><i class="fas fa-heart"></i></div>
+            <h3>Motivación y territorio</h3>
+            <p>Vivir en el <strong>Resguardo Totumal, municipio de Caldas</strong>, me ha enseñado resiliencia y gratitud. Mi familia y mi comunidad me apoyan para alcanzar mis sueños. Quiero demostrar que un joven rural puede convertirse en un <strong>profesional en tecnología</strong> sin necesidad de migrar, aprovechando la educación virtual de calidad del SENA y mi autodisciplina.</p>
+            <div class="btn-meta">
+                <i class="fas fa-map-pin"></i> #OrgullosamenteTotumal
+            </div>
+        </div>
+    </div>
+
+    <!-- Bloque destacado: Ruta SENA Virtual + llamado a la acción personal -->
+    <div class="glass-card" style="padding: 1.8rem; margin: 1rem 0 1.5rem;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
+            <div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; display: flex; gap: 0.6rem;"><i class="fas fa-chalkboard-user"></i> Mi compromiso con la formación SENA virtual</h3>
+                <p>Una vez culmine mi grado 11, aplicaré al SENA para estudiar Desarrollo de Software en casa. Complementaré mi aprendizaje con proyectos reales en HTML, CSS y JavaScript, construyendo un portafolio sólido. Mi meta final: ser desarrollador profesional y contribuir al desarrollo tecnológico de Caldas.</p>
+            </div>
+            <div>
+                <div class="btn-meta" style="background: #2dd4bf20; cursor: default;">
+                    <i class="fas fa-certificate"></i> Tecnólogo en formación
+                </div>
+            </div>
+        </div>
+        <hr style="border-color: rgba(45,212,191,0.2); margin: 1rem 0;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem;">
+            <div><i class="fas fa-envelope-open-text"></i> Contacto directo: guasarabeandres5@gmail.com</div>
+            <div><i class="fab fa-whatsapp"></i> +57 3218289141</div>
+            <div><i class="fas fa-globe"></i> Proyecto de vida · Desde Totumal para el mundo</div>
+        </div>
+    </div>
+
+    <footer>
+        <i class="far fa-copyright"></i> 2026 - Jhonny Andrés González González | Proyecto de vida: educación, software y arraigo rural | I.E El Águila · Grado 11 → SENA Virtual (Desarrollo de Software)
+        <div style="margin-top: 0.6rem; font-size: 0.7rem;">
+            🌟 Construido con HTML5 y CSS3 - Mi primer paso firme hacia el desarrollo profesional desde el Resguardo Totumal, Caldas.
+        </div>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        console.log("🚀 Jhonny Andrés González - Proyecto de Vida: SENA virtual + HTML/CSS desde casa.");
+        console.log("Meta: convertirme en desarrollador de software y orgullo del Resguardo Totumal.");
+        
+        // Configuración para la imagen de perfil: 1p.png
+        const imgElement = document.getElementById('profileImage');
+        const fallbackSpan = document.getElementById('fallbackText');
+        const avatarContainer = document.getElementById('avatarContainer');
+        
+        // Función para intentar cargar la imagen
+        function loadProfileImage() {
+            // Añadir timestamp para evitar caché del navegador
+            const imageUrl = '1p.png?' + Date.now();
+            imgElement.src = imageUrl;
+            
+            imgElement.onload = function() {
+                // La imagen se cargó correctamente
+                fallbackSpan.style.display = 'none';
+                imgElement.style.display = 'block';
+                console.log('✅ Foto de perfil cargada exitosamente desde 1p.png');
+                // Efecto visual de confirmación
+                avatarContainer.style.boxShadow = '0 0 40px rgba(45,212,191,0.8)';
+                setTimeout(() => {
+                    avatarContainer.style.boxShadow = '0 0 30px rgba(45,212,191,0.4)';
+                }, 800);
+            };
+            
+            imgElement.onerror = function() {
+                // No se encontró la imagen
+                imgElement.style.display = 'none';
+                fallbackSpan.style.display = 'flex';
+                console.log('ℹ️ No se encontró el archivo 1p.png. Asegúrate de que esté en la misma carpeta que este archivo HTML.');
+            };
+        }
+        
+        // Ejecutar carga de imagen
+        loadProfileImage();
+    })();
+</script>
+</body>
+</html>
